@@ -1,12 +1,14 @@
 package com.example.todo1.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Publisher {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -21,7 +23,7 @@ public class Publisher {
 
     @OneToMany
     @JoinColumn(name = "publisher_id")
-    private Set<Book> book;
+    private Set<Book> book = new HashSet<>();
 
     public Long getId() {
         return id;

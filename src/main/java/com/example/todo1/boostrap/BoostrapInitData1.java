@@ -8,8 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
-import java.util.HashSet;
 import java.util.Set;
 
 @Component
@@ -21,7 +19,6 @@ public class BoostrapInitData1 implements CommandLineRunner {
     private BookRepository bookRepository;
 
     @Override
-    @Transactional
     public void run(String... args) throws Exception {
 
         Author author = authorRepository.findAll().get(0);
